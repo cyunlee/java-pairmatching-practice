@@ -5,6 +5,8 @@ import java.util.List;
 import pairmatching.domain.Course;
 import pairmatching.domain.CrewGenerator;
 import pairmatching.domain.Crews;
+import pairmatching.domain.Level;
+import pairmatching.domain.Mission;
 import pairmatching.domain.PairMatcher;
 import pairmatching.domain.Pairs;
 import pairmatching.view.InputView;
@@ -38,6 +40,9 @@ public class PairMatcherController {
         if (functionInput.equals("1")) {
             showPairMatchingInfo();
             List<String> matchingChoiceInfo = requirePairMatchingChoice();
+            Course course = matchingChoiceInfo.get(0);
+            Level level = matchingChoiceInfo.get(1);
+            Mission mission = matchingChoiceInfo.get(2);
         }
         if (functionInput.equals("2")) {
             showPairMatchingInfo();
@@ -52,8 +57,8 @@ public class PairMatcherController {
         }
     }
 
-    private Pairs matchPairs(List<String> crewsNames) {
-        return pairMatcher.matchPairs(crewsNames);
+    private Pairs matchPairs(List<String> crewsNames, Course course, Mission mission) {
+        return pairMatcher.matchPairs(crewsNames, course, mission);
     }
 
 

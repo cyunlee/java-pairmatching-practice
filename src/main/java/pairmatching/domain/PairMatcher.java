@@ -6,15 +6,15 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class PairMatcher {
 
-    public Pairs matchPairs(List<String> crewsNames) {
+    public Pairs matchPairs(List<String> crewsNames, Course course, Mission mission) {
         List<String> shuffledCrew = Randoms.shuffle(crewsNames);
         Pairs pairs = new Pairs();
 
         for (int i=0; i<shuffledCrew.size(); i+=2) {
-            Pair matchedPair = new Pair();
-            matchedPair.addCrew(shuffledCrew.get(i));
-            matchedPair.addCrew(shuffledCrew.get(i+1));
-            pairs.addPair(matchedPair);
+            List<String> names = new ArrayList<>();
+            names.add(shuffledCrew.get(i));
+            names.add(shuffledCrew.get(i+1));
+            Pair pair = new Pair(names, course, mission);
         }
 
         if(crewsNames.size()%2!=0) {

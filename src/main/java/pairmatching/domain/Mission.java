@@ -1,5 +1,7 @@
 package pairmatching.domain;
 
+import java.util.Arrays;
+
 public enum Mission {
     RACING_CAR(Level.LEVEL1, "자동차경주"),
     LOTTO(Level.LEVEL2, "로또"),
@@ -13,5 +15,9 @@ public enum Mission {
     Mission(Level level, String name) {
         this.level = level;
         this.name = name;
+    }
+
+    public static Mission findMenu(String name) {
+        return Arrays.stream(values()).filter(value -> value.name.equals(name)).findAny().orElse(null);
     }
 }
