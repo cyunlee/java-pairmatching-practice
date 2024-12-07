@@ -1,5 +1,8 @@
 package pairmatching.view;
 
+import pairmatching.domain.Pair;
+import pairmatching.domain.Pairs;
+
 public class OutputView {
     private final static String ERROR = "[ERROR] ";
 
@@ -38,8 +41,11 @@ public class OutputView {
         System.out.println("초기화 되었습니다.");
     }
 
-    public void printMatchResult() {
+    public void printMatchResult(Pairs pairs) {
         System.out.println("페어 매칭 결과입니다.");
+        for (Pair pair : pairs) {
+            System.out.println(pair.toString());
+        }
     }
 
     public void printError(String message) {

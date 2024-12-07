@@ -17,7 +17,7 @@ public enum Mission {
         this.name = name;
     }
 
-    public static Mission findMenu(String name) {
+    public static Mission findMission(String name) {
         return Arrays.stream(values()).filter(value -> value.name.equals(name)).findAny().orElse(null);
     }
 }

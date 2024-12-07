@@ -14,15 +14,16 @@ import pairmatching.view.OutputView;
 
 public class PairMatcherController {
     private final CrewGenerator crewGenerator = new CrewGenerator();
-    private final PairMatcher pairMatcher = new PairMatcher();
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
+    private PairMatcher pairMatcher;
 
     public void run() {
         Crews frontendCrews = parseCrewsFromFile(Course.FRONTEND, "src/main/resources/frontend-crew.md");
         Crews backendCrews = parseCrewsFromFile(Course.BACKEND, "src/main/resources/backend-crew.md");
         List<String> frontendCrewsNames = parseCrewsNames(frontendCrews);
         List<String> backendCrewsNames = parseCrewsNames(backendCrews);
+        pairMatcher = new PairMatcher(frontendCrewsNames, backendCrewsNames);
         chooseFunction();
     }
 
@@ -40,9 +41,10 @@ public class PairMatcherController {
         if (functionInput.equals("1")) {
             showPairMatchingInfo();
             List<String> matchingChoiceInfo = requirePairMatchingChoice();
-            Course course = matchingChoiceInfo.get(0);
-            Level level = matchingChoiceInfo.get(1);
-            Mission mission = matchingChoiceInfo.get(2);
+            Course course = Course.findCourse(matchingChoiceInfo.get(0));
+            Level level = Level.findLevel(matchingChoiceInfo.get(1));
+            Mission mission = Mission.findMission(matchingChoiceInfo.get(2));
+            Pairs pairs = pairMatcher.matchPairs(course, level, mission);
         }
         if (functionInput.equals("2")) {
             showPairMatchingInfo();
@@ -57,8 +59,8 @@ public class PairMatcherController {
         }
     }
 
-    private Pairs matchPairs(List<String> crewsNames, Course course, Mission mission) {
-        return pairMatcher.matchPairs(crewsNames, course, mission);
+    private Pairs matchPairs(Course course, Level level, Mission mission) {
+        return pairMatcher.matchPairs(course, level, mission);
     }
 
 
@@ -85,7 +87,7 @@ public class PairMatcherController {
         outputView.printResetPrompt();
     }
 
-    private void showPairMatchingResult() {
-        outputView.printMatchResult();
+    private void showPairMatchingResult(Pairs pairs) {
+        outputView.printMatchResult(pairs);
     }
 }

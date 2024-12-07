@@ -14,11 +14,12 @@ public class Pair {
         this.mission = mission;
     }
 
-    public void addCrew(String name) {
-        pair.add(name);
+    public void addPair(String name) {
+        names.add(name);
     }
 
-    public List<String> getPair() {
-        return pair;
+    @Override
+    public String toString() {
+        return String.join(" : ", names);
     }
 }
