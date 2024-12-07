@@ -63,6 +63,10 @@ public class PairMatcherController {
         return pairMatcher.matchPairs(course, level, mission);
     }
 
+    private boolean isMatchedPairsExist(Course course, Level level, Mission mission) {
+        
+    }
+
 
     private String requireFunction() {
         outputView.printFunctionChoicePrompt();

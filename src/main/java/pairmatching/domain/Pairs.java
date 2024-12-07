@@ -6,9 +6,14 @@ import java.util.List;
 
 public class Pairs implements Iterable<Pair> {
     private List<Pair> pairs = new ArrayList<>();
+    private Course course;
+    private Level level;
+    private Mission mission;
 
-    public Pairs() {
-
+    public Pairs(Course course, Level level, Mission mission) {
+        this.course = course;
+        this.level = level;
+        this.mission = mission;
     }
 
     public List<Pair> addPair(Pair pair) {

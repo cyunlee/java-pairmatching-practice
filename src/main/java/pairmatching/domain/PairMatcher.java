@@ -22,13 +22,13 @@ public class PairMatcher {
             crewsNames = backendCrewsNames;
         }
         List<String> shuffledCrew = Randoms.shuffle(crewsNames);
-        Pairs pairs = new Pairs();
+        Pairs pairs = new Pairs(course, level, mission);
 
         for (int i=0; i<shuffledCrew.size(); i+=2) {
             List<String> names = new ArrayList<>();
             names.add(shuffledCrew.get(i));
             names.add(shuffledCrew.get(i+1));
-            Pair pair = new Pair(names, course, mission);
+            Pair pair = new Pair(names, course, level, mission);
             pairs.addPair(pair);
         }
 
