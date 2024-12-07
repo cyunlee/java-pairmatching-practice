@@ -16,6 +16,10 @@ public class Pairs implements Iterable<Pair> {
         return pairs;
     }
 
+    public Pair getLastPair() {
+        return pairs.get(pairs.size()-1);
+    }
+
     @Override
     public Iterator<Pair> iterator() {
         return pairs.iterator();

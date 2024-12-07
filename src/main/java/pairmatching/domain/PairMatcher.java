@@ -17,6 +17,11 @@ public class PairMatcher {
             pairs.addPair(matchedPair);
         }
 
+        if(crewsNames.size()%2!=0) {
+            String lastCrewName = crewsNames.get(crewsNames.size()-1);
+            pairs.getLastPair().addCrew(lastCrewName);
+        }
+
         return pairs;
     }
 }
