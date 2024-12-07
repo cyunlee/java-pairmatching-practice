@@ -16,11 +16,18 @@ public class PairMatcherController {
         chooseFunction();
         Crews frontendCrews = parseCrewsFromFile(Course.FRONTEND, "src/main/resources/frontend-crew.md");
         Crews backendCrews = parseCrewsFromFile(Course.BACKEND, "src/main/resources/backend-crew.md");
+        List<String> frontendCrewsNames = parseCrewsNames(frontendCrews);
+        List<String> backendCrewsNames = parseCrewsNames(backendCrews);
+
     }
 
     private Crews parseCrewsFromFile(Course course, String filePath) {
         List<String> names = crewGenerator.parseNamesFromFile(filePath);
         return crewGenerator.generateCrew(course, names);
+    }
+
+    private List<String> parseCrewsNames(Crews crews) {
+        return crews.parseCrewsNames();
     }
 
     private void chooseFunction() {
