@@ -1,4 +1,4 @@
 package pairmatching.domain;
 
-public class Pairmatcher {
+public class PairMatcher {
 }
