@@ -8,6 +8,10 @@ import java.util.stream.Collectors;
 public class Crews implements Iterable<Crew> {
     private List<Crew> crews = new ArrayList<>();
 
+    public Crews() {
+
+    }
+
     public List<Crew> addCrew(Crew crew) {
         crews.add(crew);
         return crews;
@@ -19,6 +23,15 @@ public class Crews implements Iterable<Crew> {
 
     public List<String> parseCrewsNames() {
         return crews.stream().map(Crew::getName).collect(Collectors.toList());
+    }
+
+    public Crew findCrew(String name) {
+        for (Crew crew : crews) {
+            if (name.equals(crew.getName())) {
+                return crew;
+            }
+        }
+        return null;
     }
 
     @Override

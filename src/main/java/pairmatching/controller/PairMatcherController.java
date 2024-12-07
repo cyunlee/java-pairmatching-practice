@@ -1,5 +1,6 @@
 package pairmatching.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import pairmatching.domain.Course;
 import pairmatching.domain.CrewGenerator;
@@ -13,12 +14,11 @@ public class PairMatcherController {
     private final OutputView outputView = new OutputView();
 
     public void run() {
-        chooseFunction();
         Crews frontendCrews = parseCrewsFromFile(Course.FRONTEND, "src/main/resources/frontend-crew.md");
         Crews backendCrews = parseCrewsFromFile(Course.BACKEND, "src/main/resources/backend-crew.md");
         List<String> frontendCrewsNames = parseCrewsNames(frontendCrews);
         List<String> backendCrewsNames = parseCrewsNames(backendCrews);
-
+        chooseFunction();
     }
 
     private Crews parseCrewsFromFile(Course course, String filePath) {
@@ -47,6 +47,10 @@ public class PairMatcherController {
         if (functionInput.equals("Q")) {
 
         }
+    }
+
+    private List<String> matchPairs(List<String> crewsNames) {
+
     }
 
 
