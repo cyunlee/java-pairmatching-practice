@@ -13,10 +13,14 @@ public class InputView {
         return input;
     }
 
-    public List<String> readCourseLevelMission() {
+    public List<String> readPairMatchingInfo() {
         String input = Console.readLine();
         return input;
     }
 
+    public boolean readMatchingAgainResponse() {
+        String input = Console.readLine();
+        return input;
+    }
 
 }
