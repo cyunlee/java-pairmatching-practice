@@ -8,14 +8,15 @@ public class InputView {
     private final InputParser inputParser = new InputParser();
     private final InputValidator inputValidator = new InputValidator();
 
-//    public String readInput() {
-//        try{
-//            String input = Console.readLine();
-//            inputValidator.validateInput(input);
-//            return inputParser.parseInput(input);
-//        }catch(IllegalArgumentException exception) {
-//            OutputView.printError(exception.getMessage());
-//            return readInput();
-//        }
-//    }
+    public int readFunction() {
+        String input = Console.readLine();
+        return input;
+    }
+
+    public List<String> readCourseLevelMission() {
+        String input = Console.readLine();
+        return input;
+    }
+
+
 }

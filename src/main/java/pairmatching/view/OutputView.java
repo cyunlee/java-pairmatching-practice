@@ -11,7 +11,7 @@ public class OutputView {
         System.out.println("Q. 종료");
     }
 
-    public void printCourseLevelMission() {
+    public void printPairMatchingPrompt() {
         System.out.println("#############################################");
         System.out.println("과정: 백엔드 | 프론트엔드");
         System.out.println("미션:");
@@ -23,6 +23,15 @@ public class OutputView {
         System.out.println("############################################");
         System.out.println("과정, 레벨, 미션을 선택하세요.");
         System.out.println("ex) 백엔드, 레벨1, 자동차경주");
+    }
+
+    public void printPairMatchingExistPrompt() {
+        System.out.println("매칭 정보가 있습니다. 다시 매칭하시겠습니까?");
+        System.out.println("네 | 아니오");
+    }
+
+    public void printResetPrompt() {
+        System.out.println("초기화 되었습니다.");
     }
 
     public void printMatchResult() {
