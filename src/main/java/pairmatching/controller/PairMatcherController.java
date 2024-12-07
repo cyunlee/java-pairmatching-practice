@@ -1,16 +1,48 @@
 package pairmatching.controller;
 
 import java.util.List;
+import pairmatching.domain.Course;
+import pairmatching.domain.CrewGenerator;
+import pairmatching.domain.Crews;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
 public class PairMatcherController {
+    private final CrewGenerator crewGenerator = new CrewGenerator();
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
 
     public void run() {
-        String input = requireInput();
+        chooseFunction();
+        Crews frontendCrews = parseCrewsFromFile(Course.FRONTEND, "src/main/resources/frontend-crew.md");
+        Crews backendCrews = parseCrewsFromFile(Course.BACKEND, "src/main/resources/backend-crew.md");
     }
+
+    private Crews parseCrewsFromFile(Course course, String filePath) {
+        List<String> names = crewGenerator.parseNamesFromFile(filePath);
+        return crewGenerator.generateCrew(course, names);
+    }
+
+    private void chooseFunction() {
+        String functionInput = requireFunction();
+        if (functionInput.equals("1")) {
+            showPairMatchingInfo();
+            List<String> matchingChoiceInfo = requirePairMatchingChoice();
+        }
+        if (functionInput.equals("2")) {
+            showPairMatchingInfo();
+            List<String> matchingChoiceInfo = requirePairMatchingChoice();
+            showPairMatchingResult();
+        }
+        if (functionInput.equals("3")) {
+            showPairMatchingReset();
+        }
+        if (functionInput.equals("Q")) {
+
+        }
+    }
+
+
 
     private String requireFunction() {
         outputView.printFunctionChoicePrompt();
@@ -37,10 +69,5 @@ public class PairMatcherController {
 
     private void showPairMatchingResult() {
         outputView.printMatchResult();
-    }
-
-    private String requireInput() {
-        outputView.printPrompt();
-        return inputView.readInput();
     }
 }

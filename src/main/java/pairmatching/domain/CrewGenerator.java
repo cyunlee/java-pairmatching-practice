@@ -10,11 +10,11 @@ public class CrewGenerator {
         return fileParser.parseFromFile(filePath);
     }
 
-    public Crews generatorCrew() {
+    public Crews generateCrew(Course course, List<String> names) {
         Crews crews = new Crews();
 
         for(int i=0; i<crews.size(); i++) {
-            Crew crew = new Crew(course, name);
+            Crew crew = new Crew(course, names.get(i));
             crews.addCrew(crew);
         }
 
