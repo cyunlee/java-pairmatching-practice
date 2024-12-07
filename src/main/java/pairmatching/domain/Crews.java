@@ -12,6 +12,10 @@ public class Crews implements Iterable<Crew> {
         return crews;
     }
 
+    public int size() {
+        return crews.size();
+    }
+
     @Override
     public Iterator<Crew> iterator() {
         return crews.iterator();
