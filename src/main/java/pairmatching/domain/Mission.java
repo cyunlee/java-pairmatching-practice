@@ -20,4 +20,10 @@ public enum Mission {
     public static Mission findMission(String name) {
         return Arrays.stream(values()).filter(value -> value.name.equals(name)).findAny().orElse(null);
     }
+
+    public static void isMissionExist(String name) {
+        if(findMission(name)==null) {
+            throw new IllegalArgumentException("[ERROR] 존재하지 않는 미션입니다.");
+        }
+    }
 }

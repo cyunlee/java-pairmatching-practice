@@ -44,7 +44,7 @@ public class OutputView {
     public void printMatchResult(Pairs pairs) {
         System.out.println("페어 매칭 결과입니다.");
         for (Pair pair : pairs) {
-            System.out.println(pair.toString());
+            System.out.println("pair : " + pair.toString());
         }
     }
 

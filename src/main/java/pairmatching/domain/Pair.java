@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pair {
-    private List<String> names = new ArrayList<>();
+    private List<String> names;
     private Course course;
     private Level level;
     private Mission mission;
@@ -22,6 +22,10 @@ public class Pair {
 
     @Override
     public String toString() {
-        return String.join(" : ", names);
+        StringBuilder result = new StringBuilder();
+        for (String name : names) {
+            result.append(" : ").append(name);
+        }
+        return String.valueOf(result);
     }
 }
