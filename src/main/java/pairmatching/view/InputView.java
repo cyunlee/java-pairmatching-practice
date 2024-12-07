@@ -13,7 +13,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    public List<String> readPairMatchingInfo() {
+    public List<String> readPairMatchingChoice() {
         String input = Console.readLine();
         return inputParser.parseMatchingInfo(input);
     }
