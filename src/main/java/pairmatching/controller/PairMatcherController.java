@@ -5,11 +5,14 @@ import java.util.List;
 import pairmatching.domain.Course;
 import pairmatching.domain.CrewGenerator;
 import pairmatching.domain.Crews;
+import pairmatching.domain.PairMatcher;
+import pairmatching.domain.Pairs;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
 public class PairMatcherController {
     private final CrewGenerator crewGenerator = new CrewGenerator();
+    private final PairMatcher pairMatcher = new PairMatcher();
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
 
@@ -49,10 +52,9 @@ public class PairMatcherController {
         }
     }
 
-    private List<String> matchPairs(List<String> crewsNames) {
-
+    private Pairs matchPairs(List<String> crewsNames) {
+        return pairMatcher.matchPairs(crewsNames);
     }
-
 
 
     private String requireFunction() {

@@ -7,6 +7,10 @@ import java.util.List;
 public class Pairs implements Iterable<Pair> {
     private List<Pair> pairs = new ArrayList<>();
 
+    public Pairs() {
+
+    }
+
     public List<Pair> addPair(Pair pair) {
         pairs.add(pair);
         return pairs;

@@ -3,17 +3,13 @@ package pairmatching.domain;
 import java.util.List;
 
 public class Pair {
-    private Crews onePair;
+    private List<String> pair;
 
-    public Pair(Crews crews, List<String> names) {
-        onePair = new Crews();
-        for (String name : names) {
-            Crew crew = crews.findCrew(name);
-            onePair.addCrew(crew);
-        }
+    public void addCrew(String name) {
+        pair.add(name);
     }
 
-    public Crews getPair() {
-        return onePair;
+    public List<String> getPair() {
+        return pair;
     }
 }
